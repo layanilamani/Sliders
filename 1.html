@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        ul {
+            list-style: none;
+            width: 3000px;
+        }
+
+        li {
+            float: left;
+        }
+
+        #slider {
+            overflow: hidden;
+            width: 870px;
+            position: absolute;
+        }
+
+        #navigators {
+            position: absolute;
+            border: 1px solid blue;
+            width: 870px;
+            height: 380px;
+            margin-left: 40px;
+            color: white;
+            font-size: 48px;
+        }
+
+        #navigators div {
+            
+            cursor: pointer;
+        }
+
+        #navigators>div {
+            float: left;
+            margin-top: 200px;
+        }
+
+        #navigators>div:nth-child(2) {
+            margin-left: 750px;
+        }
+    </style>
+
+    <script>
+
+        setInterval(function () {
+            next();
+        }, 3000);
+
+        document.addEventListener('keyup', function () {
+            if (event.key == "ArrowRight") {
+                next();
+            }    
+        });
+        
+        function next() {
+            var lis = document.querySelectorAll('#slider ul li');
+
+            var pehlaitem = lis[0];
+            var ul = document.getElementById('myul');
+            ul.append(pehlaitem);            
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="slider">
+        <div id="navigators">
+            <div>
+                <                     
+            </div> 
+            <div onclick="next()">
+                    >
+            </div>
+        </div>
+        <ul id="myul">
+            <li><img src="1.jpg" /></li>
+            <li><img src="2.jpg" /></li>
+            <li><img src="3.jpg" /> </li>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>
