@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        ul {
+            list-style: none;
+            width: 3000px;
+        }
+
+        li {
+            float: left;
+          ;
+        }
+
+        #slider {
+            overflow: hidden;
+            width: 870px;
+            position: absolute;
+           
+        }
+
+        #navigators {
+            position: absolute;
+            border: 1px solid blue;
+            width: 870px;
+            height: 380px;
+            margin-left: 40px;
+            color: white;
+            font-size: 48px;
+            z-index: 200;
+        }
+
+        #navigators div {
+            
+            cursor: pointer;
+        }
+
+        #navigators>div {
+            float: left;
+            margin-top: 200px;
+        }
+
+        #navigators>div:nth-child(2) {
+            margin-left: 750px;
+        }
+    </style>
+
+    <script>
+
+        // setInterval(function () {
+        //     next();
+        // }, 3000);
+
+        document.addEventListener('keyup', function () {
+            if (event.key == "ArrowRight") {
+                next();
+            }    
+        });
+        function prev() {
+            var lis = null;
+        }
+        function next() {
+
+           var firstitem = document.querySelector('#slider ul li');
+           var seconditem = document.querySelector('#slider ul li:nth-child(2)');
+        
+        //    firstitem.animate([{opacity:1},{opacity:0.3}], 2000);
+        firstitem.animate([{"margin":"0 0 0 0"},{"margin":"0% -50% 0% 0% "}], 2000);
+           
+            setTimeout(function () {
+                document.getElementById('myul').append(firstitem);   
+            }, 2000);
+
+            //seconditem.animate([{opacity:0.3},{opacity:1}], 4000);
+
+           
+
+          
+           //       
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="slider">
+        <div id="navigators">
+            <div onclick="prev()">
+                <                     
+            </div> 
+            <div onclick="next()">
+                    >
+            </div>
+        </div>
+        <ul id="myul">
+            <li><img src="1.jpg" /></li>
+            <li><img src="2.jpg" /></li>
+            <li><img src="3.jpg" /> </li>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>
